@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seu Resultado | Sabrina Duarte</title>
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bege: #F5F1ED;
+      --branco: #FFFFFF;
+      --verde-oliva: #7A8F7C;
+      --verde-acinzentado: #A3B3A1;
+      --terracota: #C47A5A;
+      --marrom: #8B6F5C;
+      --texto: #2C2C2C;
+      --texto-suave: #6B6B6B;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bege);
+      color: var(--texto);
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid rgba(139,111,92,0.15);
+      background: var(--bege);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--marrom);
+      text-decoration: none;
+    }
+
+    /* HERO DO RESULTADO */
+    .resultado-hero {
+      background-color: var(--branco);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(139,111,92,0.1);
+    }
+
+    .tag-resultado {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--verde-oliva);
+      margin-bottom: 1.5rem;
+    }
+
+    .perfil-nome {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--texto);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .perfil-nome em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+
+    .divisor {
+      width: 40px;
+      height: 1px;
+      background: var(--terracota);
+      margin: 0 auto 2rem;
+    }
+
+    /* BLOCOS DE CONTEÚDO */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .bloco {
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(139,111,92,0.12);
+    }
+
+    .bloco:last-child {
+      border-bottom: none;
+    }
+
+    .bloco-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--verde-acinzentado);
+      margin-bottom: 1.2rem;
+    }
+
+    .bloco p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--texto);
+      margin-bottom: 1rem;
+      line-height: 1.85;
+    }
+
+    .bloco p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bloco p em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--marrom);
+    }
+
+    /* CUSTO REAL — DESTAQUE */
+    .bloco-custo {
+      background: var(--branco);
+      border-radius: 2px;
+      padding: 2.5rem;
+      margin: 0 -0.5rem;
+    }
+
+    /* VIRADA */
+    .bloco-virada p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--marrom);
+      line-height: 1.7;
+    }
+
+    /* PONTE */
+    .ponte {
+      background: var(--verde-oliva);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--branco);
+    }
+
+    .ponte p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      max-width: 560px;
+      margin: 0 auto;
+      opacity: 0.92;
+    }
+
+    .ponte p strong {
+      font-weight: 600;
+    }
+
+    /* PRODUTO */
+    .produto {
+      background: var(--branco);
+      padding: 4rem 2rem;
+    }
+
+    .produto-container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .produto-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--verde-acinzentado);
+      margin-bottom: 1.5rem;
+    }
+
+    .produto-nome {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      color: var(--texto);
+      margin-bottom: 0.5rem;
+    }
+
+    .produto-subtitulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--marrom);
+      margin-bottom: 2.5rem;
+    }
+
+    .produto-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--texto);
+      margin-bottom: 2.5rem;
+    }
+
+    .inclui-titulo {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--verde-oliva);
+      margin-bottom: 1rem;
+    }
+
+    .inclui-lista {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .inclui-lista li {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--texto);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(139,111,92,0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .inclui-lista li::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--terracota);
+      margin-top: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .preco-area {
+      background: var(--bege);
+      border-radius: 2px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .preco-principal {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--texto);
+      margin-bottom: 0.3rem;
+    }
+
+    .preco-parcelado {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--texto-suave);
+    }
+
+    /* CTA */
+    .cta-area {
+      padding: 3.5rem 2rem;
+      text-align: center;
+      background: var(--bege);
+    }
+
+    .cta-frase {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--marrom);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-principal {
+      display: inline-block;
+      background: var(--terracota);
+      color: var(--branco);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 1.1rem 2.5rem;
+      margin-bottom: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .btn-principal:hover {
+      background: var(--marrom);
+      transform: translateY(-1px);
+    }
+
+    .btn-secundario {
+      display: inline-block;
+      background: transparent;
+      color: var(--marrom);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--marrom);
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .btn-secundario:hover {
+      background: var(--marrom);
+      color: var(--branco);
+    }
+
+    .btns-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(139,111,92,0.15);
+    }
+
+    .footer p {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--texto-suave);
+      line-height: 1.6;
+    }
+
+    /* ANIMAÇÃO DE ENTRADA */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .resultado-hero, .bloco, .ponte, .produto, .cta-area {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .bloco:nth-child(2) { animation-delay: 0.1s; }
+    .bloco:nth-child(3) { animation-delay: 0.2s; }
+    .bloco:nth-child(4) { animation-delay: 0.3s; }
+
+    @media (max-width: 480px) {
+      .resultado-hero { padding: 3rem 1.5rem 2.5rem; }
+      .bloco-custo { padding: 2rem 1.5rem; margin: 0; }
+      .produto { padding: 3rem 1.5rem; }
+      .cta-area { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="https://sabrinaduartepsi.vercel.app" class="logo">Sabrina Duarte</a>
+  </header>
+
+  <section class="resultado-hero">
+    <div class="tag-resultado">Seu resultado</div>
+    <h1 class="perfil-nome">A que Parece Bem,<br><em>Mas Não Está</em></h1>
+    <div class="divisor"></div>
+  </section>
+
+  <div class="container">
+
+    <div class="bloco">
+      <div class="bloco-label">O espelho</div>
+      <p>Você dá conta. A vida funciona, os compromissos estão em dia, ninguém desconfia. Mas existe uma sensação que você carrega em silêncio. Algo não fecha. Não é tristeza exatamente. É uma vida que funciona, mas que não parece completamente sua.</p>
+    </div>
+
+    <div class="bloco">
+      <div class="bloco-label">A origem</div>
+      <p>Você aprendeu cedo que se ajustar era mais seguro do que ser você mesma. Foi ficando tão boa nisso que perdeu o contato com o que queria antes de aprender a se ajustar.</p>
+    </div>
+
+    <div class="bloco">
+      <div class="bloco-label">O custo real</div>
+      <div class="bloco-custo">
+        <p>Você realiza coisas e não sente o que esperava sentir. Está presente nas situações, mas ausente de si mesma. E tem uma pergunta que tenta não fazer em voz alta: <em>é só isso?</em></p>
+      </div>
+    </div>
+
+    <div class="bloco bloco-virada">
+      <div class="bloco-label">A virada</div>
+      <p>Não está faltando esforço. Está faltando você, a mulher que existia antes de aprender a parecer bem. Ela não foi embora. Só ficou sem espaço.</p>
+    </div>
+
+  </div>
+
+  <div class="ponte">
+    <p>Esse padrão tem nome, tem origem e tem saída. Sou <strong>Sabrina Duarte</strong>, psicóloga com formação em TCC, Terapia do Esquema e certificação internacional para transtornos de ansiedade. Criei o <strong>Reencontro</strong> para essa mulher.</p>
+  </div>
+
+  <section class="produto">
+    <div class="produto-container">
+      <div class="produto-label">O próximo passo</div>
+      <h2 class="produto-nome">Reencontro</h2>
+      <p class="produto-subtitulo">Um processo de 3 meses para a mulher que perdeu o fio de si mesma</p>
+
+      <p class="produto-desc">12 sessões individuais, uma por semana. Um espaço só seu, onde você não precisa parecer bem nem explicar por que não está bem. Estrutura psicológica real, com base em TCC e Terapia do Esquema.</p>
+
+      <div class="inclui-titulo">O que está incluído</div>
+      <ul class="inclui-lista">
+        <li>12 sessões individuais, uma por semana, durante 3 meses</li>
+        <li>7 áudios de mindfulness para acessar o que está dentro</li>
+        <li>2 playlists criadas para acompanhar o processo</li>
+        <li>Caderno terapêutico para registrar o que vai surgindo</li>
+        <li>Exercícios de TCC para trabalhar os padrões fora do consultório</li>
+      </ul>
+
+      <div class="preco-area">
+        <div class="preco-principal">R$ 2.397 à vista</div>
+        <div class="preco-parcelado">ou 12x de R$ 199, o valor de menos de uma sessão avulsa por mês</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-area">
+    <p class="cta-frase">Se você leu até aqui e sentiu que esse sou eu, confie nisso.</p>
+    <div class="btns-wrapper">
+      <a href="https://wa.me/5551982373751?text=Quero%20começar%20o%20Reencontro" class="btn-principal">Quero começar o Reencontro</a>
+      <a href="https://wa.me/5551982373751?text=Quero%20conversar%20antes%20de%20decidir" class="btn-secundario">Prefiro conversar antes</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Sabrina Duarte · Psicóloga · CRP 07/26486<br>TCC · Terapia do Esquema · Certificação Internacional em Ansiedade</p>
+  </footer>
+
+</body>
+</html>
