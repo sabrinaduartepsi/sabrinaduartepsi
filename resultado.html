@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculando seu resultado...</title>
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bege: #F5F1ED;
+      --terracota: #C47A5A;
+      --marrom: #8B6F5C;
+      --verde-oliva: #7A8F7C;
+      --texto: #2C2C2C;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bege);
+      color: var(--texto);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 480px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--marrom);
+      margin-bottom: 3rem;
+      display: block;
+    }
+
+    .titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--texto);
+      margin-bottom: 1rem;
+    }
+
+    .subtitulo {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--marrom);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .loader {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .loader span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--terracota);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    .loader span:nth-child(2) { animation-delay: 0.2s; }
+    .loader span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+      40% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="https://sabrinaduartepsi.vercel.app" class="logo">Sabrina Duarte</a>
+    <h1 class="titulo">Calculando seu resultado...</h1>
+    <p class="subtitulo">Em instantes você vai descobrir qual padrão está por trás do seu esgotamento.</p>
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <script>
+    // Mapeamento das respostas para perfis
+    // A = Guerreira Exausta
+    // B = A que Cuida de Todos Menos de Si
+    // C = A que Parece Bem, Mas Não Está
+
+    const PERFIS = {
+      A: 'https://sabrinaduartepsi.vercel.app/resultado-guerreira',
+      B: 'https://sabrinaduartepsi.vercel.app/resultado-cuida-de-todos',
+      C: 'https://sabrinaduartepsi.vercel.app/resultado-parece-bem'
+    };
+
+    function calcularPerfil() {
+      const params = new URLSearchParams(window.location.search);
+      const contagem = { A: 0, B: 0, C: 0 };
+
+      // O Tally envia as respostas como parâmetros na URL
+      // Conta todas as respostas
+      for (const [chave, valor] of params.entries()) {
+        const v = valor.trim().toUpperCase();
+        if (v.startsWith('A') || v.includes('CANSAÇO') || v.includes('CANSACO') || v.includes('FRAQUEZA') || v.includes('FORTE') || v.includes('PARAR')) {
+          contagem.A++;
+        } else if (v.startsWith('B') || v.includes('CULPA') || v.includes('DISPONÍVEL') || v.includes('DISPONIVEL') || v.includes('DECEPCIONANDO') || v.includes('CUIDO')) {
+          contagem.B++;
+        } else if (v.startsWith('C') || v.includes('VAZIO') || v.includes('EQUILIBRADA') || v.includes('ESTRANHEZA') || v.includes('VIDA BOA')) {
+          contagem.C++;
+        }
+      }
+
+      // Encontra o perfil com mais respostas
+      let maiorPerfil = 'A';
+      let maiorContagem = 0;
+
+      for (const [perfil, total] of Object.entries(contagem)) {
+        if (total > maiorContagem) {
+          maiorContagem = total;
+          maiorPerfil = perfil;
+        }
+      }
+
+      // Se não encontrou nada nos parâmetros, verifica o hash ou usa padrão
+      if (maiorContagem === 0) {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && PERFIS[hash.toUpperCase()]) {
+          maiorPerfil = hash.toUpperCase();
+        }
+      }
+
+      return PERFIS[maiorPerfil];
+    }
+
+    // Redireciona após 2 segundos para dar tempo de carregar a animação
+    setTimeout(() => {
+      const destino = calcularPerfil();
+      window.location.href = destino;
+    }, 2000);
+  </script>
+</body>
+</html>
