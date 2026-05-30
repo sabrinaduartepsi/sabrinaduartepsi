@@ -3,6 +3,7 @@
     { "src": "/resultado-parece-bem", "dest": "/resultado-parece-bem.html" },
     { "src": "/resultado-guerreira", "dest": "/resultado-guerreira.html" },
     { "src": "/resultado-cuida-de-todos", "dest": "/resultado-cuida-de-todos.html" },
-    { "src": "/resultado", "dest": "/resultado.html" }
+    { "src": "/resultado", "dest": "/resultado.html" },
+    { "src": "/api/(.*)", "dest": "/api/$1" }
   ]
 }
