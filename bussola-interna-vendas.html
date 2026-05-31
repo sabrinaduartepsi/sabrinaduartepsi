@@ -841,6 +841,23 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
   nav .nav-cta { display: none; }
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'PIXEL_ID_AQUI');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=PIXEL_ID_AQUI&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -904,7 +921,7 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
     <p class="hero-creds reveal">por <strong>Sabrina Duarte</strong> · Psicóloga CRP 07/26486 · Certificação Internacional em Transtorno de Ansiedade · Psicóloga Destaque 2026</p>
     <p class="hero-sub reveal">Para a mulher que funciona por fora<br>e se perdeu por dentro.</p>
     <p class="hero-data reveal">Próxima turma: 23 de junho de 2026</p>
-    <a href="https://pay.kiwify.com.br/u1l03YO" class="btn-hero" target="_blank">Quero garantir minha vaga</a>
+    <a href="https://pay.kiwify.com.br/u1l03YO" class="btn-hero" onclick="fbq('track', 'InitiateCheckout')" target="_blank">Quero garantir minha vaga</a>
     <p class="hero-nota">Grupo pequeno · Vagas limitadas · Online ao vivo</p>
   </div>
 </section>
