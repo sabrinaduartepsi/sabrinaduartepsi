@@ -95,7 +95,7 @@ export default async function handler(req, res) {
         headers: { 'Content-Type': 'application/json', 'api-key': process.env.BREVO_API_KEY },
         body: JSON.stringify({
           sender: { name: 'Quiz Sabrina', email: 'contato@sabrinaduartepsi.com.br' },
-          to: [{ email: 'contato@sabrinaduartepsi.com.br', name: 'Sabrina' }],
+          to: [{ email: 'sabrina@psielo.com', name: 'Sabrina' }],
           subject: `Quiz: ${nomesPerfil[perfil]} — ${nome}`,
           htmlContent: `<p><strong>Nova lead!</strong></p><p>Nome: ${nome}<br>Email: ${email}<br>Perfil calculado: ${nomesPerfil[perfil]}<br>Contagem: A=${contagem.A} B=${contagem.B} C=${contagem.C}</p><p><strong>Respostas capturadas:</strong><br>${respostas.map(r => '• ' + r).join('<br>')}</p><p><strong>Fields:</strong><br>${fieldsDebug.map(f => `[${f.tipo}] ${f.label}: ${f.texto}`).join('<br>')}</p>`
         }),
