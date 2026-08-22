@@ -13,12 +13,12 @@ export default async function handler(req, res) {
     
     // Mapear campos
     let email = '';
-    let nome = '';
+    let nome = ''; let instagram = '';
     const respostas = [];
     const fieldsDebug = [];
 
     for (const field of fields) {
-      const tipo = (field.type || '').toUpperCase();
+      const tipo = (field.type || '').toUpperCase(); const labelLower = (field.label || '').toLowerCase();
       let valor = field.value;
       let texto = '';
 
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
       if (tipo === 'INPUT_EMAIL' || tipo === 'EMAIL') {
         email = texto.trim();
-      } else if (tipo === 'INPUT_TEXT' || tipo === 'TEXT') {
+      } else if (labelLower.includes('instagram')) { instagram = texto.trim(); } else if (tipo === 'INPUT_TEXT' || tipo === 'TEXT') {
         if (!nome) nome = texto.trim();
       } else if (texto) {
         respostas.push(texto.toLowerCase());
@@ -80,7 +80,7 @@ export default async function handler(req, res) {
       await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'api-key': process.env.BREVO_API_KEY },
-        body: JSON.stringify({ email, firstName: primeiroNome, listIds: [3], attributes: { PERFIL_QUIZ: nomesPerfil[perfil] }, updateEnabled: true }),
+        body: JSON.stringify({ email, firstName: primeiroNome, listIds: [3], attributes: { PERFIL_QUIZ: nomesPerfil[perfil], INSTAGRAM: instagram }, updateEnabled: true }),
       });
 
       await fetch('https://api.brevo.com/v3/smtp/email', {
@@ -97,7 +97,7 @@ export default async function handler(req, res) {
           sender: { name: 'Quiz Sabrina', email: 'contato@sabrinaduartepsi.com.br' },
           to: [{ email: 'sabrina@psielo.com', name: 'Sabrina' }],
           subject: `Quiz: ${nomesPerfil[perfil]} — ${nome}`,
-          htmlContent: `<p><strong>Nova lead!</strong></p><p>Nome: ${nome}<br>Email: ${email}<br>Perfil calculado: ${nomesPerfil[perfil]}<br>Contagem: A=${contagem.A} B=${contagem.B} C=${contagem.C}</p><p><strong>Respostas capturadas:</strong><br>${respostas.map(r => '• ' + r).join('<br>')}</p><p><strong>Fields:</strong><br>${fieldsDebug.map(f => `[${f.tipo}] ${f.label}: ${f.texto}`).join('<br>')}</p>`
+          htmlContent: `<p><strong>Nova lead!</strong></p><p>Nome: ${nome}<br>Email: ${email}<br>Instagram: ${instagram || '(não informado)'}<br>Perfil calculado: ${nomesPerfil[perfil]}<br>Contagem: A=${contagem.A} B=${contagem.B} C=${contagem.C}</p><p><strong>Respostas capturadas:</strong><br>${respostas.map(r => '• ' + r).join('<br>')}</p><p><strong>Fields:</strong><br>${fieldsDebug.map(f => `[${f.tipo}] ${f.label}: ${f.texto}`).join('<br>')}</p>`
         }),
       });
     }
