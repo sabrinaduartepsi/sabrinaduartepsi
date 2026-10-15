@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agende sua consulta | Sabrina Duarte, Psicóloga CRP 07/26486</title>
+<meta name="description" content="Psicoterapia online e presencial com Sabrina Duarte, psicóloga clínica. Formação em TCC e Terapia do Esquema. Pacotes de sessões disponíveis. Agende pelo WhatsApp.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sabrinaduartepsi.vercel.app/agendar">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18214758523"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18214758523');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bege:#F5F1ED; --branco:#FFFFFF; --verde-oliva:#7A8F7C; --verde-claro:#A3B3A1;
+    --terracota:#C47A5A; --marrom:#8B6F5C; --marrom-escuro:#5c4535; --verde-profundo:#38463E;
+    --texto:#3d2e22; --texto-suave:#7d6248;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Lato',sans-serif;background:var(--bege);color:var(--texto);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:'Playfair Display',serif;color:var(--marrom-escuro);font-weight:500;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 1.4rem;}
+  .logo{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--marrom-escuro);}
+  .logo span{color:var(--terracota);}
+  header{padding:1.1rem 0;border-bottom:1px solid rgba(61,46,34,.08);}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;}
+  header small{font-size:.78rem;color:var(--texto-suave);}
+  .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--verde-oliva);margin-bottom:1rem;}
+  .hero{padding:3.2rem 0 2.6rem;}
+  h1{font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.22;margin-bottom:1.2rem;}
+  .emocional{font-style:italic;color:var(--terracota);font-family:'Playfair Display',serif;}
+  p.lead{font-size:1.06rem;color:var(--texto-suave);margin-bottom:1rem;}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.9rem;border-radius:32px;background:var(--terracota);color:#fff;
+    font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .15s,opacity .2s;}
+  .btn:hover{transform:translateY(-2px);opacity:.93;}
+  .btn svg{width:20px;height:20px;fill:#fff;}
+  .micro{font-size:.82rem;color:var(--texto-suave);margin-top:.9rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0 1.8rem;}
+  .tag{font-size:.78rem;color:var(--texto-suave);background:#fff;padding:.45rem .9rem;border-radius:20px;border:1px solid rgba(61,46,34,.08);}
+  section{padding:2.8rem 0;}
+  .branca{background:#fff;}
+  .oliva{background:var(--verde-oliva);color:#fff;text-align:center;}
+  .oliva p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.15rem,3vw,1.5rem);}
+  h2{font-size:clamp(1.5rem,3.4vw,2rem);margin-bottom:1rem;}
+  ul.check{list-style:none;margin:1rem 0;}
+  ul.check li{position:relative;padding-left:1.7rem;margin-bottom:.85rem;color:var(--texto-suave);}
+  ul.check li::before{content:'✦';position:absolute;left:0;top:.05em;color:var(--terracota);font-size:.85rem;}
+  ol.steps{list-style:none;counter-reset:s;margin-top:1rem;}
+  ol.steps li{counter-increment:s;position:relative;padding-left:2.7rem;margin-bottom:1.2rem;color:var(--texto-suave);}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:-.1em;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--verde-oliva);
+    color:#fff;font-family:'Playfair Display',serif;display:flex;align-items:center;justify-content:center;}
+  .cta-final{background:var(--terracota);color:#fff;text-align:center;padding:3.2rem 0;}
+  .cta-final h2{color:#fff;}
+  .cta-final p{color:rgba(255,255,255,.92);margin-bottom:1.5rem;}
+  .cta-final .btn{background:#fff;color:var(--marrom-escuro);}
+  .cta-final .btn svg{fill:var(--marrom-escuro);}
+  footer{background:var(--marrom-escuro);color:rgba(255,255,255,.8);padding:2rem 0;font-size:.82rem;}
+  footer a{text-decoration:underline;}
+  footer .aviso{margin-top:1rem;font-size:.76rem;color:rgba(255,255,255,.55);}
+  .float{position:fixed;bottom:1.2rem;right:1.2rem;z-index:50;background:var(--terracota);color:#fff;border-radius:32px;padding:.85rem 1.3rem;
+    font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 10px 26px rgba(0,0,0,.2);}
+  @media(max-width:520px){.float{left:1rem;right:1rem;text-align:center;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/" class="logo">Sabrina <span>Duarte</span></a>
+    <small>Psicóloga · CRP 07/26486</small>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Psicoterapia online e presencial</div>
+    <h1>Eu te entendo… <span class="emocional">mas você merece mais do que continuar assim.</span></h1>
+    <p class="lead">Você dá conta de tudo. Do trabalho, da casa, de quem depende de você. E, por dentro, vive com o peito apertado e um cansaço que o descanso não resolve.</p>
+    <p class="lead">Psicoterapia para mulheres competentes e exaustas, com abordagem em Terapia Cognitivo-Comportamental e Terapia do Esquema.</p>
+    <div class="tags">
+      <span class="tag">Online para todo o Brasil</span>
+      <span class="tag">Presencial em Torres/RS</span>
+      <span class="tag">Atendimento particular</span>
+      <span class="tag">Pacotes de sessões</span>
+    </div>
+    <a class="btn js-wa" href="https://api.whatsapp.com/send?phone=5551982373751&text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20gostaria%20de%20agendar%20uma%20consulta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 6.4A8.9 8.9 0 0 0 3.3 16.6L2 22l5.5-1.4A8.9 8.9 0 0 0 12 21.9a8.9 8.9 0 0 0 5.6-15.5zM12 20.2a7.3 7.3 0 0 1-3.7-1l-.3-.2-3.3.9.9-3.2-.2-.3A7.3 7.3 0 1 1 19.3 12 7.3 7.3 0 0 1 12 20.2zm4-5.4c-.2-.1-1.3-.6-1.5-.7s-.3-.1-.5.1-.6.7-.8.9-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.5c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4c-.1-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2 4.7 4.7 0 0 0 1 2.5 10.6 10.6 0 0 0 4.2 3.7c1.5.6 1.5.4 1.8.4a1.6 1.6 0 0 0 1-.7 1.3 1.3 0 0 0 .1-.7c-.1-.2-.3-.3-.5-.4z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
+    <p class="micro">Você fala direto comigo. Respondo para combinarmos o melhor horário.</p>
+  </div>
+</section>
+
+<section class="oliva">
+  <div class="wrap">
+    <p>Dar conta de tudo não significa estar bem.</p>
+  </div>
+</section>
+
+<section class="branca">
+  <div class="wrap">
+    <div class="eyebrow">Talvez você se reconheça aqui</div>
+    <h2>Competente por fora. Exausta por dentro.</h2>
+    <ul class="check">
+      <li>Você cumpre tudo o que precisa, mas quase nunca sente que fez o suficiente.</li>
+      <li>O corpo pede pausa, e a cabeça já está organizando o próximo problema.</li>
+      <li>Você cuida de todo mundo e tem dificuldade de perceber o que precisa.</li>
+      <li>A autocobrança ajuda você a produzir, mas cobra um preço alto.</li>
+      <li>Sente ansiedade, aperto no peito, e a impressão de que se perdeu de si.</li>
+    </ul>
+    <p class="lead" style="margin-top:1.2rem;">Reconhecer isso não diminui a sua força. Pode ser o começo de uma forma mais leve de usá-la.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Como funciona</div>
+    <h2>Simples e sem pressa.</h2>
+    <ol class="steps">
+      <li>Você me chama no WhatsApp e conta, em poucas palavras, o que te trouxe até aqui.</li>
+      <li>Combinamos o melhor dia e horário, online ou presencial em Torres.</li>
+      <li>Na primeira sessão, entendemos juntas o que está acontecendo e como o processo pode caminhar.</li>
+    </ol>
+    <p class="lead" style="margin-top:1.4rem;">O atendimento é particular. Para quem prefere acompanhar o processo com mais regularidade, também trabalho com pacotes de sessões. Os detalhes eu explico na nossa conversa.</p>
+  </div>
+</section>
+
+<section class="branca">
+  <div class="wrap">
+    <div class="eyebrow">Quem vai te atender</div>
+    <h2>Sabrina Duarte, psicóloga clínica.</h2>
+    <p class="lead">CRP 07/26486. Formação em Terapia Cognitivo-Comportamental e Terapia do Esquema, com certificação internacional em transtornos de ansiedade.</p>
+    <p class="lead">Antes da clínica, trabalhei em cargo de liderança no corporativo. Sei o que é carregar muita responsabilidade e fingir que está tudo bem. O atendimento é humano, sem julgamentos e no seu ritmo.</p>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Que tal começar com uma conversa?</h2>
+    <p>Você não precisa ter tudo claro para me chamar. Só precisa querer algo diferente.</p>
+    <a class="btn js-wa" href="https://api.whatsapp.com/send?phone=5551982373751&text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20gostaria%20de%20agendar%20uma%20consulta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 6.4A8.9 8.9 0 0 0 3.3 16.6L2 22l5.5-1.4A8.9 8.9 0 0 0 12 21.9a8.9 8.9 0 0 0 5.6-15.5zM12 20.2a7.3 7.3 0 0 1-3.7-1l-.3-.2-3.3.9.9-3.2-.2-.3A7.3 7.3 0 1 1 19.3 12 7.3 7.3 0 0 1 12 20.2zm4-5.4c-.2-.1-1.3-.6-1.5-.7s-.3-.1-.5.1-.6.7-.8.9-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.5c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4c-.1-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2 4.7 4.7 0 0 0 1 2.5 10.6 10.6 0 0 0 4.2 3.7c1.5.6 1.5.4 1.8.4a1.6 1.6 0 0 0 1-.7 1.3 1.3 0 0 0 .1-.7c-.1-.2-.3-.3-.5-.4z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo" style="color:#fff;">Sabrina <span>Duarte</span></div>
+    <p style="margin-top:.4rem;">Psicóloga · CRP 07/26486 · Atendimento online e presencial em Torres/RS</p>
+    <p style="margin-top:.4rem;"><a href="/">Conheça o site completo</a> · <a href="/politica-de-privacidade">Política de Privacidade</a> · © 2026</p>
+    <p class="aviso">As informações desta página têm caráter informativo e não substituem avaliação psicológica ou atendimento profissional. Em situações de urgência ou risco imediato, procure um serviço de emergência da sua região.</p>
+  </div>
+</footer>
+
+<a class="float js-wa" href="https://api.whatsapp.com/send?phone=5551982373751&text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20gostaria%20de%20agendar%20uma%20consulta" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+
+<script>
+  // Conversão: clique no botão do WhatsApp (Google Ads, ação "Clique WhatsApp - Agendar")
+  document.querySelectorAll('.js-wa').forEach(function(el){
+    el.addEventListener('click', function(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {'send_to': 'AW-18214758523/17jVCPaU950dEPvQvO1D'});
+      }
+    });
+  });
+</script>
+</body>
+</html>
