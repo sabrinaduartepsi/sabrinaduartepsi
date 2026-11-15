@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Reflexão gratuita | Sabrina Duarte</title><meta name="description" content="Cinco perguntas para olhar para o seu jeito de dar conta de tudo. O resultado aparece na tela, sem precisar deixar nenhum dado."><meta name="robots" content="index, follow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,400;1,500&display=swap">
+<style>
+body{margin:0}
+
+/* Layout: coluna estreita de celular, uma tela por vez; o resultado vem antes de qualquer pedido de dado, e o e-mail é um cartão opcional abaixo dele. */
+:root {
+  --bg: #F5F1ED;
+  --surface: #FFFFFF;
+  --fg: #2B352F;
+  --muted: #667068;
+  --line: #E3DBD0;
+  --olive: #7A8F7C;
+  --olive-soft: #E6EBE4;
+  --deep: #38463E;
+  --terra: #C47A5A;
+  --cta: #B26948;
+  --cta-fg: #FFFFFF;
+  --pilot-bg: #38463E;
+  --pilot-fg: #F5F1ED;
+  --font-display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Montserrat", "Lato", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1E2723; --surface: #28332E; --fg: #EFE9E1; --muted: #A8B1A9; --line: #3A4740;
+    --olive: #98AC9A; --olive-soft: #33423A; --deep: #EFE9E1; --terra: #D6906E; --cta: #C9805D; --cta-fg: #1E2723;
+    --pilot-bg: #121916; --pilot-fg: #EFE9E1; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1E2723; --surface: #28332E; --fg: #EFE9E1; --muted: #A8B1A9; --line: #3A4740;
+  --olive: #98AC9A; --olive-soft: #33423A; --deep: #EFE9E1; --terra: #D6906E; --cta: #C9805D; --cta-fg: #1E2723;
+  --pilot-bg: #121916; --pilot-fg: #EFE9E1; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+.pilot { background: var(--pilot-bg); color: var(--pilot-fg); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding: 10px max(16px, env(safe-area-inset-left, 0px)); font-size: 12px; letter-spacing: .04em; text-align: center; }
+.pilot strong { font-weight: 600; text-transform: uppercase; letter-spacing: .12em; }
+.shell { max-width: 560px; margin: 0 auto; }
+.jump { display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 0 6px; align-items: center; }
+.jump span { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-right: 4px; }
+.chip { font: inherit; font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
+.chip:hover { border-color: var(--olive); }
+.chip[aria-current="true"] { background: var(--olive-soft); border-color: var(--olive); }
+:focus-visible { outline: 2px solid var(--terra); outline-offset: 2px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 32px 24px; margin-top: 12px; }
+.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .16em; color: var(--olive); font-weight: 600; margin: 0 0 14px; }
+h1, h2 { font-family: var(--font-display); font-weight: 500; line-height: 1.2; margin: 0 0 16px; text-wrap: balance; color: var(--deep); }
+h1 { font-size: 34px; font-style: italic; font-weight: 400; }
+h2 { font-size: 26px; }
+p { margin: 0 0 14px; }
+.lead { color: var(--muted); }
+.btn { display: inline-block; font: inherit; font-weight: 600; font-size: 15px; background: var(--cta); color: var(--cta-fg); border: 0; border-radius: 10px; padding: 14px 22px; cursor: pointer; text-decoration: none; text-align: center; }
+.btn:hover { filter: brightness(1.06); }
+.btn.block { display: block; width: 100%; }
+.btn.sec { background: transparent; color: var(--deep); border: 1px solid var(--olive); }
+.link { font: inherit; font-size: 14px; background: none; border: 0; color: var(--muted); cursor: pointer; padding: 8px 0; text-decoration: underline; text-underline-offset: 3px; }
+.sign { margin-top: 28px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+.progress { display: flex; gap: 6px; margin-bottom: 8px; }
+.progress i { flex: 1; height: 4px; border-radius: 2px; background: var(--line); }
+.progress i.on { background: var(--olive); }
+.count { font-size: 12px; color: var(--muted); margin: 0 0 24px; letter-spacing: .04em; }
+.q { font-family: var(--font-display); font-size: 24px; line-height: 1.3; color: var(--deep); margin: 0 0 24px; text-wrap: balance; }
+.opts { display: grid; gap: 10px; }
+.opt { font: inherit; text-align: left; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer; }
+.opt:hover { border-color: var(--olive); }
+.opt[aria-pressed="true"] { background: var(--olive); border-color: var(--olive); color: #fff; }
+label { display: block; font-size: 13px; font-weight: 600; margin: 0 0 6px; }
+label small { font-weight: 400; color: var(--muted); }
+input[type=text], input[type=email], input[type=tel] { width: 100%; font: inherit; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+.field { margin-bottom: 16px; }
+.check { display: flex; gap: 10px; font-size: 13px; color: var(--muted); align-items: flex-start; margin-bottom: 18px; }
+.check input { margin-top: 4px; accent-color: var(--olive); }
+.plink { text-decoration: underline; text-underline-offset: 2px; color: var(--deep); }
+.err { color: var(--cta); font-size: 13px; min-height: 20px; margin: 0 0 10px; }
+.note { font-size: 12px; color: var(--muted); margin-top: 14px; }
+.legal { font-size: 12px; color: var(--muted); margin: 18px 4px 0; }
+.offer { background: var(--olive-soft); border: 1px solid var(--line); border-radius: 16px; padding: 28px 22px; margin-top: 12px; }
+.offer h3 { font-family: var(--font-display); font-weight: 500; font-size: 21px; line-height: 1.3; margin: 0 0 10px; color: var(--deep); text-wrap: balance; }
+.tabs { display: flex; gap: 6px; margin: 12px 0 0; }
+.tab { flex: 1; font: inherit; font-size: 13px; font-weight: 600; padding: 10px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--deep); border-color: var(--olive); }
+.badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--olive); border: 1px solid var(--olive); border-radius: 999px; padding: 4px 12px; margin-bottom: 16px; }
+.result-title { font-family: var(--font-display); font-style: italic; font-size: 30px; line-height: 1.2; color: var(--deep); margin: 0 0 6px; }
+.result-head { font-family: var(--font-display); font-size: 20px; color: var(--terra); margin: 0 0 18px; }
+.inv { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.inv .kicker { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--olive); font-weight: 600; margin: 0 0 8px; }
+.inv .sub { font-weight: 600; font-size: 14px; color: var(--deep); margin: 16px 0 6px; }
+.inv ul { margin: 0 0 14px; padding-left: 20px; }
+.inv li { margin-bottom: 6px; }
+.inv .extra { font-style: italic; color: var(--muted); margin: 0 0 18px; }
+.inv .foot { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
+.mail { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-top: 12px; overflow: hidden; }
+.mail-meta { background: var(--olive-soft); padding: 14px 18px; font-size: 12px; color: var(--muted); display: grid; gap: 2px; }
+.mail-meta b { color: var(--fg); font-weight: 600; }
+.mail-body { padding: 24px 22px; font-size: 15px; }
+.mail-body .hello { font-family: var(--font-display); font-size: 20px; color: var(--deep); }
+.mail-body .type { background: var(--bg); border-left: 3px solid var(--terra); padding: 10px 14px; margin: 18px 0; font-family: var(--font-display); font-size: 18px; }
+.mail-body .ask { font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--deep); }
+.mail-body hr { border: 0; border-top: 1px solid var(--line); margin: 22px 0; }
+.mail-foot { padding: 16px 22px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); line-height: 1.5; }
+.review { margin-top: 28px; }
+.review h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+.review ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
+.review li { margin-bottom: 6px; }
+@media (max-width: 420px) { h1 { font-size: 29px; } .card { padding: 26px 18px; } }
+@media (prefers-reduced-motion: no-preference) { .card { animation: rise .35s ease both; } @keyframes rise { from { opacity: .0; transform: translateY(6px); } to { opacity: 1; transform: none; } } }
+</style>
+
+</head>
+<body>
+<div class="shell" style="padding-top:20px">
+  <main id="app"></main>
+</div>
+
+<script>
+(function () {
+  var WA_NUMBER = "5551982373751";
+  function waUrl(nome) {
+    var txt = "Oi, Sabrina. Fiz a reflexão, meu resultado foi " + nome + " e quero conhecer a Sessão de Mapa da Ansiedade.";
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(txt);
+  }
+  var FOOT = "Um encontro de até 2 horas, online ou presencial em Torres.";
+
+  var QUESTIONS = [
+    "Depois que você entrega ou envia algo, a sua cabeça continua revisando?",
+    "Você diz \"sim\" ou assume mais uma tarefa para não sentir culpa ou não decepcionar alguém?",
+    "Você só se permite descansar quando tudo está resolvido, e quase nunca está?",
+    "Você se prepara para o que pode dar errado, mesmo quando nada indica que vai dar?",
+    "Seu corpo avisa (dor de cabeça, estômago, tensão, cansaço que o sono não resolve) e você segue assim mesmo?"
+  ];
+  var SCALE = ["Nunca", "Às vezes", "Com frequência", "Quase sempre"];
+
+  var TYPES = [
+    { name: "Atenta aos sinais", head: "Seus sinais ainda são discretos",
+      screen: "Suas respostas mostram que dar conta de tudo ainda não ocupou o centro da sua rotina. A cabeça já continua trabalhando em alguns momentos em que você poderia parar.",
+      mid: ["Suas respostas mostram sinais ainda discretos. De vez em quando a sua cabeça segue trabalhando depois que o trabalho acabou, mas isso ainda não toma conta do seu dia.",
+            "Este é um bom momento para reparar. Quem carrega muita responsabilidade costuma ir revisando, antecipando e adiando o descanso aos poucos, sem perceber quando começou."],
+      ask: "Em que momento do dia a minha cabeça continua trabalhando, mesmo sem ninguém me pedir?", preset: [0, 1, 0, 1, 1],
+      inv: { text: "Seus sinais ainda são discretos, e este é um bom momento para entender de onde eles vêm. Na Sessão de Mapa, a gente parte de uma situação real da sua semana e descobre o que faz a sua cabeça continuar trabalhando quando você poderia parar.",
+             list: ["o seu primeiro Mapa da Ansiedade: o que dispara, o que você faz para se proteger e quanto isso custa", "uma prática curta para perceber o padrão antes que ele cresça", "clareza sobre o próximo passo, se ele fizer sentido para você"],
+             extra: "", btn: "Quero entender o meu padrão" } },
+    { name: "Cabeça que não desliga", head: "Você dá conta, e o custo já aparece",
+      screen: "Revisar de cabeça, dizer sim para não decepcionar e deixar o descanso para depois estão aparecendo com frequência.",
+      mid: ["Suas respostas mostram que você dá conta, e que isso já tem um custo. Revisar de cabeça, dizer sim para não decepcionar e deixar o descanso para depois aparecem com frequência na sua rotina.",
+            "Muita gente nessa situação acredita que, se baixar a guarda, alguma coisa vai sair do lugar. Essa crença vira uma regra interna: \"só posso descansar quando tudo estiver resolvido\". E tudo quase nunca está."],
+      ask: "Qual regra eu sigo sem perceber, e quando foi que eu aprendi a segui-la?", preset: [2, 2, 1, 2, 1],
+      inv: { text: "Você já percebeu que funciona assim. O que costuma faltar é entender por que, e o que fazer diferente sem deixar de dar conta. Na Sessão de Mapa, a gente pega uma cena real da sua rotina e encontra a regra interna que mantém a sua cabeça ligada.",
+             list: ["o seu Mapa da Ansiedade, com o seu ciclo organizado em uma página", "a regra que você segue sem perceber, escrita nas suas palavras", "práticas para os próximos 15 dias, pensadas para caber na sua semana"],
+             extra: "", btn: "Quero entender por que eu não desligo" } },
+    { name: "Responsabilidade em alerta", head: "Dar conta virou o seu jeito de se proteger",
+      screen: "Suas respostas indicam que revisar, antecipar e adiar o descanso viraram uma estratégia constante, e o corpo já está avisando. Isso merece ser olhado com cuidado, junto de alguém que entenda do assunto.",
+      mid: ["Suas respostas indicam que revisar, antecipar e adiar o descanso viraram o seu jeito de se proteger. Em muitos momentos isso parece competência, e por isso passa despercebido. O corpo, porém, costuma avisar antes.",
+            "Este resultado mostra como foram as suas últimas semanas. Para um diagnóstico, seria preciso uma avaliação profissional."],
+      ask: "O que eu imagino que pode acontecer se eu parar de checar, de revisar e de me preparar?", preset: [3, 3, 2, 3, 3],
+      inv: { text: "Quando o corpo já está avisando, o primeiro passo é parar de tratar isso como mais uma coisa para dar conta sozinha. A Sessão de Mapa é uma conversa para entender o que sustenta esse jeito de funcionar e decidir, com orientação, qual é o melhor caminho para você agora.",
+             list: ["o seu Mapa da Ansiedade: o que dispara, como você se protege e o que isso está custando ao seu corpo e à sua rotina", "práticas para os próximos 15 dias, incluindo uma para os momentos de mais tensão", "uma indicação clara do próximo passo: acompanhamento ou psicoterapia"],
+             extra: "Se o que você sente está muito intenso, a psicoterapia pode ser o caminho mais indicado agora. Na conversa, a gente avalia isso com cuidado.", btn: "Quero entender o meu momento" } }
+  ];
+
+  var S = { screen: "intro", q: 0, answers: [null, null, null, null, null], nome: "", email: "", tel: "", ok: false, err: "", type: 0, tab: "tela", sent: false };
+  var app = document.getElementById("app");
+
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function typeFor(sum) { return sum <= 5 ? 0 : (sum <= 10 ? 1 : 2); }
+  function sum(a) { return a.reduce(function (t, v) { return t + (v || 0); }, 0); }
+  function invHtml(t) {
+    var v = t.inv;
+    return '<div class="inv"><p class="kicker">Por que olhar para isso agora</p><p>' + esc(v.text) + '</p>' +
+      '<p class="sub">Você sai com:</p><ul>' + v.list.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul>" +
+      (v.extra ? '<p class="extra">' + esc(v.extra) + "</p>" : "") +
+      '<a class="btn block" href="' + waUrl(t.name) + '" target="_blank" rel="noopener">' + esc(v.btn) + "</a>" +
+      '<p class="foot">' + FOOT + "</p></div>";
+  }
+  function firstName() { var n = (S.nome || "").trim().split(/\s+/)[0]; return n || "Maria"; }
+
+  function scaleBtns(i) {
+    return SCALE.map(function (lab, v) {
+      return '<button class="opt" data-ans="' + v + '" aria-pressed="' + (S.answers[i] === v) + '">' + lab + "</button>";
+    }).join("");
+  }
+
+  function viewIntro() {
+    return '<section class="card"><p class="eyebrow">Reflexão gratuita</p><h1>Dá conta de tudo e ainda assim não está bem?</h1>' +
+      '<p class="lead">Cinco perguntas, cerca de dois minutos. O resultado aparece na tela, sem precisar deixar nenhum dado. Esta reflexão não é um diagnóstico.</p>' +
+      '<p style="margin-top:24px"><button class="btn block" data-go="q0">Começar</button></p>' +
+      '<p class="sign">Sabrina Duarte<br>Psicóloga · CRP 07/26486 · Torres e online</p></section>';
+  }
+
+  function viewQ() {
+    var bars = QUESTIONS.map(function (_, i) { return '<i class="' + (i <= S.q ? "on" : "") + '"></i>'; }).join("");
+    return '<section class="card"><div class="progress" aria-hidden="true">' + bars + '</div><p class="count">Pergunta ' + (S.q + 1) + ' de 5</p>' +
+      '<h2 class="q">' + esc(QUESTIONS[S.q]) + '</h2><div class="opts">' + scaleBtns(S.q) + '</div>' +
+      '<p style="margin-top:18px"><button class="link" data-back="1">' + (S.q === 0 ? "Voltar ao início" : "Pergunta anterior") + "</button></p></section>";
+  }
+
+  function offerHtml() {
+    if (S.sent) {
+      return '<section class="offer" id="offer"><h3>Pronto, ' + esc(firstName()) + '.</h3>' +
+        '<p>Enviei o resultado completo para <strong>' + esc(S.email) + '</strong>.</p>' +
+        '<p class="note">Se não encontrar, olhe também a caixa de spam.</p></section>';
+    }
+    return '<section class="offer" id="offer"><h3>Quer receber o resultado completo e uma pergunta para levar com você?</h3>' +
+      '<p class="lead">É opcional. Seu resultado já está nesta tela, sem precisar deixar nenhum dado.</p>' +
+      '<form id="f" novalidate>' +
+      '<div class="field"><label for="nome">Seu nome</label><input type="text" id="nome" autocomplete="given-name" value="' + esc(S.nome) + '"></div>' +
+      '<div class="field"><label for="email">Seu e-mail</label><input type="email" id="email" autocomplete="email" value="' + esc(S.email) + '"></div>' +
+      '<div class="field"><label for="tel">Seu WhatsApp <small>(opcional, com DDD)</small></label><input type="tel" id="tel" placeholder="(51) 99999-9999" autocomplete="tel" inputmode="tel" value="' + esc(S.tel) + '"></div>' +
+      '<label class="check" for="ok" style="font-weight:400"><input type="checkbox" id="ok"' + (S.ok ? " checked" : "") + '><span>Concordo em receber o resultado da reflexão e, de vez em quando, conteúdos da Sabrina Duarte por e-mail e WhatsApp. Posso cancelar quando quiser. Li a <a class="plink" href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>' +
+      '<p class="err" id="err" role="alert">' + esc(S.err) + '</p>' +
+      '<button class="btn sec block" type="submit">Enviar para o meu e-mail</button></form>' +
+      '</section>';
+  }
+
+  function viewResult() {
+    var t = TYPES[S.type];
+    var body;
+    if (true) {
+      body = '<section class="card"><p class="result-title">' + esc(t.name) + '</p><p class="result-head">' + esc(t.head) + "</p>" +
+        "<p>" + esc(t.screen) + "</p>" + invHtml(t) +
+        '</section>' +
+        offerHtml() +
+        '<p class="legal">Esta reflexão não é um diagnóstico e não substitui avaliação profissional.</p>';
+    } else {
+      body = '';
+    }
+    return body;
+  }
+
+  function render(keep) {
+    var h = "";
+    if (S.screen === "intro") h = viewIntro();
+    else if (S.screen === "q") h = viewQ();
+    else h = viewResult();
+    app.innerHTML = h;
+    if (!keep) window.scrollTo(0, 0);
+  }
+
+  function showResult(type, demo, sent) {
+    S.type = type; S.screen = "result"; S.tab = "tela"; S.sent = !!sent; S.err = "";
+    if (demo) { S.answers = TYPES[type].preset.slice(); }
+    render();
+  }
+
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest("button, a"); if (!el) return;
+    if (el.dataset.go === "q0") { S.screen = "q"; S.q = 0; render(); }
+    else if (el.dataset.ans !== undefined) {
+      S.answers[S.q] = Number(el.dataset.ans);
+      var btns = app.querySelectorAll(".opt");
+      btns.forEach(function (b) { b.setAttribute("aria-pressed", String(Number(b.dataset.ans) === S.answers[S.q])); });
+      setTimeout(function () {
+        if (S.screen !== "q") return;
+        if (S.q < 4) { S.q++; render(); }
+        else { showResult(typeFor(sum(S.answers)), false, false); }
+      }, 260);
+    } else if (el.dataset.back) {
+      if (S.screen === "q") { if (S.q === 0) S.screen = "intro"; else S.q--; }
+      render();
+    } else if (el.dataset.tab) { S.tab = el.dataset.tab; render(); }
+  });
+
+  document.addEventListener("submit", function (e) {
+    if (e.target.id !== "f") return;
+    e.preventDefault();
+    S.nome = document.getElementById("nome").value;
+    S.email = document.getElementById("email").value;
+    S.tel = document.getElementById("tel").value;
+    S.ok = document.getElementById("ok").checked;
+    var err = "";
+    if (!S.nome.trim()) err = "Escreva o seu nome para eu saber como te chamar.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(S.email.trim())) err = "Confira o e-mail. Ele precisa ter um @ e um endereço completo, como nome@email.com.";
+    else if (S.tel.trim() && !/^(55)?\d{10,11}$/.test(S.tel.replace(/\D/g, ""))) err = "Confira o WhatsApp. Use o DDD e o número, como (51) 99999-9999.";
+    else if (!S.ok) err = "Marque o aceite para receber o resultado por e-mail.";
+    if (err) { S.err = err; var p = document.getElementById("err"); if (p) p.textContent = err; return; }
+    S.err = "";
+    var btn = e.target.querySelector("button[type=submit]");
+    if (btn) { btn.disabled = true; btn.textContent = "Enviando..."; }
+    fetch("/api/reflexao", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nome: S.nome.trim(), email: S.email.trim(), whatsapp: S.tel.trim(), aceite: true, tipo: S.type }) })
+      .then(function (r) { if (!r.ok) throw new Error("falha"); S.sent = true; render(true); var o = document.getElementById("offer"); if (o && o.scrollIntoView) o.scrollIntoView({ block: "start" }); })
+      .catch(function () {
+        S.err = "Não consegui enviar agora. Seu resultado continua aqui na tela. Tente de novo em instantes.";
+        var p = document.getElementById("err"); if (p) p.textContent = S.err;
+        if (btn) { btn.disabled = false; btn.textContent = "Enviar para o meu e-mail"; }
+      });
+  });
+
+  render();
+})();
+</script>
+</body></html>
