@@ -83,12 +83,12 @@
     },
     {
       "source": "/sessao-destrave",
-      "destination": "/#ajuda",
+      "destination": "/sessao-de-mapa",
       "permanent": true
     },
     {
       "source": "/sessao-destrave.html",
-      "destination": "/#ajuda",
+      "destination": "/sessao-de-mapa",
       "permanent": true
     },
     {
