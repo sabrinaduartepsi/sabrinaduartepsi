@@ -1,3 +1,180 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/sobre",
+      "destination": "/#sobre",
+      "permanent": true
+    },
+    {
+      "source": "/sobre.html",
+      "destination": "/#sobre",
+      "permanent": true
+    },
+    {
+      "source": "/psicoterapia",
+      "destination": "/#ajuda",
+      "permanent": true
+    },
+    {
+      "source": "/psicoterapia.html",
+      "destination": "/#ajuda",
+      "permanent": true
+    },
+    {
+      "source": "/contato",
+      "destination": "/#contato",
+      "permanent": true
+    },
+    {
+      "source": "/contato.html",
+      "destination": "/#contato",
+      "permanent": true
+    },
+    {
+      "source": "/perguntas-frequentes",
+      "destination": "/#perguntas",
+      "permanent": true
+    },
+    {
+      "source": "/perguntas-frequentes.html",
+      "destination": "/#perguntas",
+      "permanent": true
+    },
+    {
+      "source": "/empresas",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/empresas.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/reencontro",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/reencontro.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/bussola-interna",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/bussola-interna.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/bussola-interna-vendas",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/bussola-interna-vendas.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sessao-destrave",
+      "destination": "/#ajuda",
+      "permanent": true
+    },
+    {
+      "source": "/sessao-destrave.html",
+      "destination": "/#ajuda",
+      "permanent": true
+    },
+    {
+      "source": "/agendar",
+      "destination": "/#contato",
+      "permanent": true
+    },
+    {
+      "source": "/agendar.html",
+      "destination": "/#contato",
+      "permanent": true
+    },
+    {
+      "source": "/resultado",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/resultado.html",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/resultado-cuida-de-todos",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/resultado-cuida-de-todos.html",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/resultado-guerreira",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/resultado-guerreira.html",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/resultado-parece-bem",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/resultado-parece-bem.html",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/politica",
+      "destination": "/politica-de-privacidade",
+      "permanent": true
+    },
+    {
+      "source": "/politica.html",
+      "destination": "/politica-de-privacidade",
+      "permanent": true
+    },
+    {
+      "source": "/a-lista-que-ninguem-ve.pdf",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/guia-proposito-ou-ansiedade.pdf",
+      "destination": "/reflexao",
+      "permanent": true
+    },
+    {
+      "source": "/api/debug",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/3index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/3index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
 }
